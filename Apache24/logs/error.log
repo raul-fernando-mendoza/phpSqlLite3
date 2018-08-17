@@ -1505,3 +1505,13 @@ Apache server interrupted...
 Apache server interrupted...
 [Thu Jul 19 16:54:58.213091 2018] [mpm_winnt:notice] [pid 10128:tid 624] AH00364: Child: All worker threads have exited.
 [Thu Jul 19 16:54:58.369202 2018] [mpm_winnt:notice] [pid 9500:tid 620] AH00430: Parent: Child process 10128 exited successfully.
+[Thu Aug 16 18:18:59.188874 2018] [ssl:warn] [pid 14908:tid 700] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Aug 16 18:18:59.725866 2018] [ssl:warn] [pid 14908:tid 700] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Aug 16 18:19:00.469858 2018] [mpm_winnt:notice] [pid 14908:tid 700] AH00455: Apache/2.4.34 (Win32) OpenSSL/1.0.2o PHP/7.1.19 configured -- resuming normal operations
+[Thu Aug 16 18:19:00.469858 2018] [mpm_winnt:notice] [pid 14908:tid 700] AH00456: Server built: Jul 10 2018 09:24:15
+[Thu Aug 16 18:19:00.469858 2018] [core:notice] [pid 14908:tid 700] AH00094: Command line: 'C:\\projects\\phpSqlLite3\\Apache24\\bin\\httpd.exe -d C:/projects/phpSqlLite3/Apache24'
+[Thu Aug 16 18:19:00.560855 2018] [mpm_winnt:notice] [pid 14908:tid 700] AH00418: Parent: Created child process 11396
+[Thu Aug 16 18:19:02.577829 2018] [ssl:warn] [pid 11396:tid 664] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Aug 16 18:19:02.917908 2018] [ssl:warn] [pid 11396:tid 664] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Aug 16 18:19:02.987823 2018] [mpm_winnt:notice] [pid 11396:tid 664] AH00354: Child: Starting 64 worker threads.
+[Thu Aug 16 19:26:32.189486 2018] [php7:error] [pid 11396:tid 1328] [client ::1:50503] script 'C:/projects/phpSqlLite3/Apache24/htdocs/foldersSelect.php' not found or unable to stat, referer: http://localhost/entities.html

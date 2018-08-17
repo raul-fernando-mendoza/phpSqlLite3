@@ -1,77 +1,33 @@
-angular.module('entityApp', [])
-  .controller('FolderController', function($scope, $http) {
-    var folderList = this;
+angular.module('entityApp')
+  .controller('EntityController', function($scope, $http) {
+    var entityList = this;
 	
-    folderList.folders = [
+    entityList.entities = [
 		{
-			id:1,	
-			folderName:"folder1",
-			entities:[
-			  {id:1, entityName:'country',parentFolder:1},
-			  {id:2, entityName:'clty',parentFolder:1}
-			]
-		
+			entityId:1,	
+			entityName:"Entity1",
+			parentFolderId:$scope.$parent.folder.folderId
 		},
 		{
-			id:2,
-			folderName:"folder2",	
-			entities:[
-			  {id:3, entityName:'employee',parentFolder:2},
-			  {id:4, entityName:'campaigns',parentFolder:2}
-			]
-		}
+			entityId:2,	
+			entityName:"Entity2",
+			parentFolderId:$scope.$parent.folder.folderId
+		}		
 	];
 		
-    folderList.addFolder = function(folder) {
-      folderList.entities.push(folder);
+    entityList.addEntity = function(entityId, entityName, parentFolderId) {
+	  var e = {entityId:entityId, entityName:entityName,parentFolderId:parentFolderId }; 
+      entityList.entities.push(e);
     };
-    folderList.remove = function(folder) {
-      for(var i=0; i<folderList.folders.length ; i++){
-		  if( folderList.folders[i].id === folder.id ){
-			  folderList.folders.splice(i,1);
+    entityList.remove = function(e) {
+      for(var i=0; i<entityList.entities.length ; i++){
+		  if( entityList.entities[i].id === e.id ){
+			  entityList.entities.splice(i,1);
 			  break;
 		  }
 	  }
     };
- 
- 
-    folderList.addEntityToFolder = function(folder,entity) {
-      folder.push(entity);
-    };
-    folderList.removeEntityFromFolder = function(folder,entity) {
-      for(var i=0; i<folder.entities.length ; i++){
-		  if( folder.entities[i].id === entity.id ){
-			  folder.entities.splice(i,1);
-			  break;
-		  }
-	  }
-    };
-	
-    //declare an action for our button
-	folderList.getFolders = function () {
-
-		//perform ajax call.
-		$http({
-			url: "./foldersSelect.php",
-			method: "GET",
-			responseType: "json"
-		}).success(function (data, status, headers, config) {
-
-			//copy the data we get to our items array. we need to use angular.copy so that
-			//angular can track the object and bind it automatically.
-			angular.copy(data.folderList, folderList);
-
-
-		}).error(function (data, status, headers, config) {
-			//something went wrong
-			alert('Error getting data');
-		});
+	entityList.onEntityClick = function(entity){
+		alert("clicked on:" + entity.entityName + " " + entity.entityId);
 	};	
-	folderList.onFolderClick = function(folder){
-		alert("clicked on:" + folder.id + " " + folder.folderName);
-	};	
-	folderList.onEntityClick = function(entity){
-		alert("clicked on:" + entity.id + " " + entity.entityName);
-	};
-	
   });
